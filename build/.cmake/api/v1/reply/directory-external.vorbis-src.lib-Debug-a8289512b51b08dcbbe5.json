@@ -1,0 +1,118 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"external/vorbis-src/lib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 117,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 129,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 145,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/lib/libvorbisd.a"
+			],
+			"targetId" : "vorbis::@47718b8644313cda667f",
+			"targetIndex" : 11,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/lib/libvorbisencd.a"
+			],
+			"targetId" : "vorbisenc::@47718b8644313cda667f",
+			"targetIndex" : 12,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/lib/libvorbisfiled.a"
+			],
+			"targetId" : "vorbisfile::@47718b8644313cda667f",
+			"targetIndex" : 13,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Vorbis",
+			"exportName" : "VorbisTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "vorbis::@47718b8644313cda667f",
+					"index" : 11
+				},
+				{
+					"id" : "vorbisenc::@47718b8644313cda667f",
+					"index" : 12
+				},
+				{
+					"id" : "vorbisfile::@47718b8644313cda667f",
+					"index" : 13
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/vorbis-build/lib/CMakeFiles/Export/cc38caa321284793c52f43683a3b76fc/VorbisTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/Vorbis",
+			"paths" : 
+			[
+				"external/vorbis-build/VorbisConfig.cmake",
+				"external/vorbis-build/VorbisConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/vorbis-build/lib",
+		"source" : "external/vorbis-src/lib"
+	}
+}

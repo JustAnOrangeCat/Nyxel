@@ -1,0 +1,266 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"sfml_export_targets"
+		],
+		"files" : 
+		[
+			"external/sfml-src/CMakeLists.txt",
+			"external/sfml-src/cmake/Macros.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 247,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 251,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 359,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 360,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 377,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 442,
+				"parent" : 5
+			},
+			{
+				"command" : 0,
+				"file" : 1,
+				"line" : 447,
+				"parent" : 5
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "devel",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "external/sfml-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "devel",
+			"destination" : "lib/cmake/SFML",
+			"paths" : 
+			[
+				{
+					"from" : "external/sfml-src/cmake/Modules",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/doc/SFML",
+			"paths" : 
+			[
+				"external/sfml-src/license.md"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/doc/SFML",
+			"paths" : 
+			[
+				"external/sfml-src/readme.md"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLSystemStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-system::@4928fe49aedd03d4a197",
+					"index" : 9
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLSystemStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLMainStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-main::@1550302cb0f8c96c601f",
+					"index" : 7
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLMainStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLWindowStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-window::@f9332a50776e503f9126",
+					"index" : 10
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLWindowStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLNetworkStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-network::@7f8a72b81b5157a07ae0",
+					"index" : 8
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLNetworkStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLGraphicsStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-graphics::@683974bf390275edc9c4",
+					"index" : 6
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLGraphicsStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/SFML",
+			"exportName" : "SFMLAudioStaticTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "sfml-audio::@4f8931cf10c12240e9d6",
+					"index" : 5
+				}
+			],
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/CMakeFiles/Export/3937c6824958577f216dad0a66bc6149/SFMLAudioStaticTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 12,
+			"component" : "devel",
+			"destination" : "lib/cmake/SFML",
+			"paths" : 
+			[
+				"external/sfml-build/SFMLConfig.cmake",
+				"external/sfml-build/SFMLConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build",
+		"source" : "external/sfml-src"
+	}
+}

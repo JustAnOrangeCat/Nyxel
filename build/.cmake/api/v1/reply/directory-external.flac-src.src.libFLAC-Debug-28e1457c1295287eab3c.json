@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"external/flac-src/src/libFLAC/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 113,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/sfml-build/lib/libFLACd.a"
+			],
+			"targetId" : "FLAC::@abd6dc8b1da338aa4007",
+			"targetIndex" : 0,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/flac-build/src/libFLAC",
+		"source" : "external/flac-src/src/libFLAC"
+	}
+}

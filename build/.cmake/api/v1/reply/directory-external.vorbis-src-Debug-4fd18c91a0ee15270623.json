@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "C:/Users/Navaneeth Krishnan S/Desktop/PhotoClone/Nyxel/external/vorbis-build",
+		"source" : "external/vorbis-src"
+	}
+}
