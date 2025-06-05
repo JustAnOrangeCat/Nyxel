@@ -22,10 +22,21 @@ int main()
         std::cout<<"ERROR::IMGUI::FAILED_TO_INIT_IMGUI-SFML"<<'\n';
     }
 
-    //-----CIRCLE-----
+    //Getting ImGUI IO for changing font
+    ImGuiIO& io = ImGui::GetIO();
+    //adding font
+    io.FontDefault = io.Fonts->AddFontFromFileTTF("../resources/fonts/Helvetica.ttf", 18.0f);
+    ImGui::SFML::UpdateFontTexture();
 
+    //Styling ImGUi
+    ImGuiStyle& style = ImGui::GetStyle();
+    
+    //MenuBar
+    style.Colors[ImGuiCol_MenuBarBg] = ImVec4(17/255.0f, 17/255.0f, 17/255.0f, 1.0f); // BG
+    style.Colors[ImGuiCol_Text] = ImVec4(220/255.0f, 224/255.0f, 245/255.0f, 1.0f); //TEXT
+    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(180/255.0f, 190/255.0f, 254/255.0f, 1.0f); // HOVER
 
-    //-----GAME LOOP-----
+    //-----MAIN LOOP-----
     sf::Clock deltaClock;
     while(window.isOpen())
     {
@@ -48,19 +59,58 @@ int main()
 
         } //END EVENT
 
+        //IMGUI
         ImGui::SFML::Update(window, deltaClock.restart());
 
         //-----DRAWING IMGUI-----
-        ImGui::Begin("ImGUI Window");
-        
+        if(ImGui::BeginMainMenuBar())
+        {
+            if(ImGui::BeginMenu("File"))
+            {
+                if(ImGui::MenuItem("Open"))
+                {
+                    //TODO
+                    //Implement OPEN
+                }
 
+                if(ImGui::MenuItem("Save"))
+                {
+                    //TODO
+                    //Implement SAVE
+                }
 
+                if(ImGui::MenuItem("Exit"))
+                {
+                    //TODO
+                    //Implement EXIT
+                }
+
+                ImGui::EndMenu();
+            }
+
+            if(ImGui::BeginMenu("Help"))
+            {
+                if(ImGui::MenuItem("About"))
+                {
+                    //TODO
+                    //Implement ABOUT
+                }
+                ImGui::EndMenu();
+            }
+
+            ImGui::EndMainMenuBar();
+        }
+
+        ImGui::Begin("TEST01");
+        ImGui::Text("TEST01");
         ImGui::End();
+
+        //END ImGUI-----
+
         //-----UPDATE-----
         
         
-        
-        //----DRAWING STUFF-----
+        //----DRAWING-----
         window.clear(sf::Color::Black);
         
 
@@ -70,6 +120,7 @@ int main()
         window.display();
     }
 
+    //CleanUP
     ImGui::SFML::Shutdown();
     return 0;
 }
