@@ -7,11 +7,11 @@
 int main()
 {
 
-    unsigned int SCREEN_WIDTH = 800;
-    unsigned int SCREEN_HEIGHT = 600;
+    unsigned int SCREEN_WIDTH = 1920;
+    unsigned int SCREEN_HEIGHT = 1080;
 
     //-----INIT WINDOW-----
-    sf::RenderWindow window(sf::VideoMode({SCREEN_WIDTH, SCREEN_HEIGHT}), "OHH MYY GAAAHH!!");
+    sf::RenderWindow window(sf::VideoMode({SCREEN_WIDTH, SCREEN_HEIGHT}), "Nyxel");
     window.setVerticalSyncEnabled(true);
     
     sf::View view = window.getDefaultView();
@@ -24,13 +24,6 @@ int main()
 
     //-----CIRCLE-----
 
-    bool circleExists = true;
-    float circleRadius = 100.0f;
-
-    float color3[3] = {1/255,1/255,1/255};
-
-    sf::CircleShape circle(circleRadius);
-    circle.setPosition(sf::Vector2f(SCREEN_WIDTH/2 - circle.getRadius(), SCREEN_HEIGHT/2 - circle.getRadius()));
 
     //-----GAME LOOP-----
     sf::Clock deltaClock;
@@ -58,32 +51,25 @@ int main()
         ImGui::SFML::Update(window, deltaClock.restart());
 
         //-----DRAWING IMGUI-----
-        ImGui::Begin("MY GAAH!");
+        ImGui::Begin("ImGUI Window");
         
-        ImGui::GetIO().FontGlobalScale = 1.5;
-        ImGui::Checkbox("CIRCLE", &circleExists);
-        ImGui::SliderFloat("RADIUS", &circleRadius, 10.0f, 500.0f);
-        ImGui::ColorEdit3("COLOR", color3);
+
 
         ImGui::End();
-
         //-----UPDATE-----
-        circle.setRadius(circleRadius);
-
         
-        sf::Color circleColor = sf::Color(color3[0] * 255, color3[1] * 255, color3[2] * 255);
-        circle.setFillColor(circleColor);
-
+        
+        
         //----DRAWING STUFF-----
         window.clear(sf::Color::Black);
-        if(circleExists)
-        {
-            window.draw(circle);
-        }
+        
+
 
         //-----DRAWING WINDOWS-----
         ImGui::SFML::Render(window);
         window.display();
     }
 
+    ImGui::SFML::Shutdown();
+    return 0;
 }
