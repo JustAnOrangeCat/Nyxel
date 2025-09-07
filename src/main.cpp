@@ -1,126 +1,72 @@
-#include <iostream>
+#include <wx/wx.h>
 
-#include <imgui.h> // necessary for ImGui::*, imgui-SFML.h doesn't include imgui.h
-#include <imgui-SFML.h> // for ImGui::SFML::* functions and SFML-specific overloads
-#include <SFML/Graphics.hpp>
-
-int main()
+class MyApp : public wxApp
 {
-
-    unsigned int SCREEN_WIDTH = 1920;
-    unsigned int SCREEN_HEIGHT = 1080;
-
-    //-----INIT WINDOW-----
-    sf::RenderWindow window(sf::VideoMode({SCREEN_WIDTH, SCREEN_HEIGHT}), "Nyxel");
-    window.setVerticalSyncEnabled(true);
-    
-    sf::View view = window.getDefaultView();
-
-    //-----INIT IMGUI-----
-    if(!ImGui::SFML::Init(window))
-    {
-        std::cout<<"ERROR::IMGUI::FAILED_TO_INIT_IMGUI-SFML"<<'\n';
-    }
-
-    //Getting ImGUI IO for changing font
-    ImGuiIO& io = ImGui::GetIO();
-    //adding font
-    io.FontDefault = io.Fonts->AddFontFromFileTTF("../resources/fonts/Helvetica.ttf", 18.0f);
-    ImGui::SFML::UpdateFontTexture();
-
-    //Styling ImGUi
-    ImGuiStyle& style = ImGui::GetStyle();
-    
-    //MenuBar
-    style.Colors[ImGuiCol_MenuBarBg] = ImVec4(17/255.0f, 17/255.0f, 17/255.0f, 1.0f); // BG
-    style.Colors[ImGuiCol_Text] = ImVec4(220/255.0f, 224/255.0f, 245/255.0f, 1.0f); //TEXT
-    style.Colors[ImGuiCol_HeaderHovered] = ImVec4(180/255.0f, 190/255.0f, 254/255.0f, 1.0f); // HOVER
-
-    //-----MAIN LOOP-----
-    sf::Clock deltaClock;
-    while(window.isOpen())
-    {
-        //-----EVENTS-----
-        while(const auto event = window.pollEvent())
-        {
-
-            ImGui::SFML::ProcessEvent(window, *event);
-
-            if(event->is<sf::Event::Closed>())
-            {
-                window.close();
-            }
-
-            else if (const auto* resized = event->getIf<sf::Event::Resized>())
-            {
-                view.setSize(sf::Vector2f(resized->size.x, resized->size.y));
-                window.setView(view);
-            }
-
-        } //END EVENT
-
-        //IMGUI
-        ImGui::SFML::Update(window, deltaClock.restart());
-
-        //-----DRAWING IMGUI-----
-        if(ImGui::BeginMainMenuBar())
-        {
-            if(ImGui::BeginMenu("File"))
-            {
-                if(ImGui::MenuItem("Open"))
-                {
-                    //TODO
-                    //Implement OPEN
-                }
-
-                if(ImGui::MenuItem("Save"))
-                {
-                    //TODO
-                    //Implement SAVE
-                }
-
-                if(ImGui::MenuItem("Exit"))
-                {
-                    //TODO
-                    //Implement EXIT
-                }
-
-                ImGui::EndMenu();
-            }
-
-            if(ImGui::BeginMenu("Help"))
-            {
-                if(ImGui::MenuItem("About"))
-                {
-                    //TODO
-                    //Implement ABOUT
-                }
-                ImGui::EndMenu();
-            }
-
-            ImGui::EndMainMenuBar();
-        }
-
-        ImGui::Begin("TEST01");
-        ImGui::Text("TEST01");
-        ImGui::End();
-
-        //END ImGUI-----
-
-        //-----UPDATE-----
-        
-        
-        //----DRAWING-----
-        window.clear(sf::Color::Black);
-        
-
-
-        //-----DRAWING WINDOWS-----
-        ImGui::SFML::Render(window);
-        window.display();
-    }
-
-    //CleanUP
-    ImGui::SFML::Shutdown();
-    return 0;
+public:
+    bool OnInit() override;
+};
+ 
+wxIMPLEMENT_APP(MyApp);
+ 
+class MyFrame : public wxFrame
+{
+public:
+    MyFrame();
+ 
+private:
+    void OnHello(wxCommandEvent& event);
+    void OnExit(wxCommandEvent& event);
+    void OnAbout(wxCommandEvent& event);
+};
+ 
+enum
+{
+    ID_Hello = 1
+};
+ 
+bool MyApp::OnInit()
+{
+    MyFrame *frame = new MyFrame();
+    frame->Show(true);
+    return true;
 }
+
+MyFrame::MyFrame() : wxFrame(nullptr, wxID_ANY, "HELLO MATE!")
+{
+    wxMenu* menuFile = new wxMenu();
+    menuFile->Append(ID_Hello, "&HELLO...\tCtrl+H", "I dont know something about help string");
+    menuFile->AppendSeparator();
+    menuFile->Append(wxID_EXIT);
+
+    wxMenu* menuAbout = new wxMenu();
+    menuAbout->Append(wxID_ABOUT);
+
+    wxMenuBar* menuBar = new wxMenuBar();
+    menuBar->Append(menuFile, "&File");
+    menuBar->Append(menuAbout, "&Help");
+
+    SetMenuBar(menuBar);
+
+    CreateStatusBar();
+    SetStatusText("Welcome to this thing!!");
+
+    Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
+    Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
+    Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
+}
+
+void MyFrame::OnExit(wxCommandEvent& event)
+{
+    close(true);
+}
+
+void MyFrame::OnAbout(wxCommandEvent& event)
+{
+    wxMessageBox("This is a wxWidgets Hello World example", "About Hello World", wxOK | wxICON_INFORMATION);
+}
+
+void MyFrame::OnHello(wxCommandEvent& event)
+{
+    wxLogMessage("Hello World '_' ");
+}
+

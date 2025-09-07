@@ -1,4 +1,0 @@
-rgb(245, 224, 220) = white
-rgb(17, 17, 27) = black
-rgb(137, 180, 250) = blue
-rgb(180, 190, 254) = lavender

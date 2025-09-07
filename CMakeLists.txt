@@ -1,60 +1,39 @@
-cmake_minimum_required(VERSION 3.14)
-project(Nyxel)
+cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-set(CMAKE_CXX_STANDARD 17)
+#Setup
+project(wx_cmake_fetchcontent_template LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Treat all libraries as static
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libraries")
-
-# Add SFML_STATIC define so SFML uses static linking logic
-add_compile_definitions(SFML_STATIC)
-
-# Include FetchContent to handle external libraries
+#Fetch Content
 include(FetchContent)
 
-# Set the base directory for external dependencies
-set(FETCHCONTENT_BASE_DIR ${CMAKE_SOURCE_DIR}/external)
-
-# Fetch SFML
+#WxWidgets
+set(wxBUILD_SHARED OFF)
+message(STATUS "Fetching wxWidgets...")
 FetchContent_Declare(
-    SFML
-    GIT_REPOSITORY https://github.com/SFML/SFML.git
-    GIT_TAG        3.0.0
+   wxWidgets
+   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
+   GIT_SHALLOW ON
+   SOURCE_DIR ${CMAKE_BINARY_DIR}/wxWidgets
 )
-FetchContent_MakeAvailable(SFML)
+FetchContent_MakeAvailable(wxWidgets)
 
-include_directories(imgui)
-
-file(GLOB_RECURSE SRC_FILES
-
-    "${CMAKE_SOURCE_DIR}/imgui/*.cpp"
-    "${CMAKE_SOURCE_DIR}/imgui/*.h"
-
-
-    "${CMAKE_SOURCE_DIR}/src/*.cpp"
-    "${CMAKE_SOURCE_DIR}/src/*.h"
+#Adding Executable
+file(GLOB SRC_FILES
+     "src/*.hpp"
+     "src/*.cpp"
 )
+if(APPLE)
+    # create bundle on apple compiles
+    add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${SRC_FILES})
 
-# Add your executable
-add_executable(${PROJECT_NAME} ${SRC_FILES})
-
-# Link SFML modules
-target_link_libraries(${PROJECT_NAME}
-    sfml-graphics
-    sfml-window
-    sfml-system
-    stdc++fs
-)
-
-# On Windows, link additional system libraries for static SFML
-if(WIN32)
-    target_link_libraries(${PROJECT_NAME}
-        opengl32
-        gdi32
-        winmm
-        user32
-        shell32
-        imm32
-    )
+    # Set a custom plist file for the app bundle - needed for Mac OS Retina display.
+    set_target_properties(main PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist)
+else()
+    # the WIN32 is needed for Windows in order for it to look for WinMain.
+    add_executable(${PROJECT_NAME} WIN32 ${SRC_FILES})
 endif()
+
+#Linking Libraries
+target_link_libraries(${PROJECT_NAME} PRIVATE wxcore wxnet)
