@@ -1,3 +1,3 @@
 # Nyxel
-Nyxel is a cross-platform paint and photoshop clone written in C++
+Nyxel is an unfinished cross-platform paint and photoshop clone written in C++
 
